@@ -16,5 +16,5 @@ Techology Requirements:
 This project was built using SAS code. You will need to have access to SAS 9.4 or SAS Studio to utilize this model. 
 
 Project Owners:
-====
+---
 This project was created by Samantha Doyle and Brianna Noel, graduate students at Kennesaw State University in the Data Science and Analytics program. 
