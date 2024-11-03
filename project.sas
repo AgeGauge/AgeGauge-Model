@@ -6,3 +6,6 @@ PROC IMPORT OUT=project.age
 	DBMS= CSV REPLACE;
 	GETNAMES = YES;
 	run;
+
+proc contents data=project.age;
+	run;
