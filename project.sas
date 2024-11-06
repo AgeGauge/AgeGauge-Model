@@ -1,8 +1,8 @@
 libname project "C:\Users\Brino\OneDrive\Desktop\Fall 2024\Extra\Datasets\Project";
 
-/* Import CSV */
+/* IMPORT CSV */
 PROC IMPORT OUT=project.age
-	DATAFILE= "C:\Users\Brino\OneDrive\Desktop\Fall 2024\Extra\Datasets\Project\Train.csv"
+	DATAFILE= "C:\Users\Brino\OneDrive\Desktop\Fall 2024\Extra\Datasets\Project\AgeDataset.csv"
 	DBMS= CSV REPLACE;
 	GETNAMES = YES;
 	run;
