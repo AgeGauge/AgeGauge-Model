@@ -49,3 +49,10 @@ PROC CORR DATA=project.age;
 	VAR age height weight systolic_bp diastolic_bp chol_level bmi blood_glucose stress_lvl sun_expo
 	pollution_expo cognitive_function bone_density vision_sharpness hearing_ability;
 	run;
+
+ /* CHECK FOR OUTLIERS IN QUANTITATIVE VARIABLES THAT HAVE R GE 0.5 */
+
+PROC UNIVARIATE DATA=project.age NOPRINT;
+	VAR age systolic_bp diastolic_bp bone_density vision_sharpness hearing_ability cognitive_function;
+	HISTOGRAM / NORMAL;
+	run;
