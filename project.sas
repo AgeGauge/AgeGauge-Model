@@ -38,21 +38,13 @@ DATA project.age;
 
 DATA project.age;
 	SET project.age;
-	stress_lvl = ROUND(stress_levels);
-	pollution_expo = ROUND(pollution_exposure);
-	sun_expo = ROUND(sun_exposure);
+	stress_lvl = round(stress_levels);
+	pollution_expo = round(pollution_exposure);
+	sun_expo = round(sun_exposure);
 	run;
 
-/* CHECK CORRELATION COEFFICIENT OF ALL QUANTITATIVE VARIABLES */
-	
-PROC CORR DATA=project.age;
-	VAR age height weight systolic_bp diastolic_bp chol_level bmi blood_glucose stress_lvl sun_expo
-	pollution_expo cognitive_function bone_density vision_sharpness hearing_ability;
-	run;
-
- /* CHECK FOR OUTLIERS IN QUANTITATIVE VARIABLES THAT HAVE R GE 0.5 */
-
-PROC UNIVARIATE DATA=project.age NOPRINT;
-	VAR age systolic_bp diastolic_bp bone_density vision_sharpness hearing_ability cognitive_function;
-	HISTOGRAM / NORMAL;
-	run;
+/* MAKING HISTOGRAMS FOR THE VARIABLES WITH LOWER COEFFICIENTS */
+PROC UNIVARIATE DATA= project.age;
+    VAR weight chol_level BMI blood_glucose stress_lvl pollution_expo sun_expo;
+    HISTOGRAM / NORMAL;  
+RUN;
