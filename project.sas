@@ -1,19 +1,17 @@
-libname project "C:\Users\Brino\OneDrive\Desktop\Fall 2024\Extra\Datasets\Project";
+LIBNAME project "C:\Users\Brino\OneDrive\Desktop\Fall 2024\Extra\Datasets\Project";
 
 /* IMPORT CSV */
+
 PROC IMPORT OUT=project.age
 	DATAFILE= "C:\Users\Brino\OneDrive\Desktop\Fall 2024\Extra\Datasets\Project\AgeDataset.csv"
 	DBMS= CSV REPLACE;
 	GETNAMES = YES;
 	run;
 
-proc contents data=project.age;
-	run;
-	
 PROC CONTENTS DATA=project.age;
 	run;
 	
-*/ RENAME VARIABLE FOR EASE OF USE */;
+/* RENAME VARIABLE FOR EASE OF USE */
 
 DATA project.age;
 	SET project.age;
@@ -26,8 +24,9 @@ DATA project.age;
 	RENAME Hearing_ability__dB_ = hearing_ability;
 	RENAME Physical_activity_level = activity_level;
 	RENAME Age__years_ = age;
+	run;
 
- */ SEPARATE BLOOD PRESSURE VALUES */;
+ /* SEPARATE BLOOD PRESSURE VALUES */
 
 DATA project.age;
 	SET project.age;
@@ -35,9 +34,9 @@ DATA project.age;
 	diastolic=SUBSTR(bp,5);
 	run;
 
+/* ROUNDING 3 VARIABLES TO DISCRETE LEVEL VALUES */
 
-	*/ ROUNDING 3 VARIABLES TO DISCRETE LEVEL VALUES */;
-	DATA project.age;
+DATA project.age;
 	SET project.age;
 	stress_lvl = round(stress_levels);
 	pollution_expo = round(pollution_exposure);
