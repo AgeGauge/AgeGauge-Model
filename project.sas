@@ -28,12 +28,16 @@ DATA project.age;
 
  /* SEPARATE BLOOD PRESSURE VALUES */
 
+*/ separate blood pressure values */;
+
 DATA project.age;
 	SET project.age;
 	systolic=SUBSTR(bp,1,3);
 	diastolic=SUBSTR(bp,5);
+	systolic_bp=INPUT(systolic,4.);
+	diastolic_bp=INPUT(diastolic,4.);
 	run;
-
+ 
 /* ROUNDING 3 VARIABLES TO DISCRETE LEVEL VALUES */
 
 DATA project.age;
