@@ -27,7 +27,7 @@ DATA project.age;
 	RENAME Physical_activity_level = activity_level;
 	RENAME Age__years_ = age;
 
- */ separate blood pressure values */;
+ */ SEPARATE BLOOD PRESSURE VALUES */;
 
 DATA project.age;
 	SET project.age;
