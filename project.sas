@@ -66,3 +66,53 @@ PROC UNIVARIATE DATA=project.age NOPRINT;
 	VAR age systolic_bp diastolic_bp bone_density vision_sharpness hearing_ability cognitive_function;
 	HISTOGRAM / NORMAL;
 	run;
+
+ /* MAKE BAR CHART FOR CATAGORICAL VARIABLES */
+
+PROC SGPLOT DATA=project.age;
+	VBAR activity_level;
+	run;
+	
+PROC SGPLOT DATA=project.age;
+	VBAR gender;
+	run;
+
+PROC SGPLOT DATA=project.age;
+	VBAR smoking_status;
+	run;
+
+PROC SGPLOT DATA=project.age;
+	VBAR alcohol_consumption;
+	run;
+	
+PROC SGPLOT DATA=project.age;
+	VBAR diet;
+	run;
+	
+PROC SGPLOT DATA=project.age;
+	VBAR chronic_diseases;
+	run;
+	
+PROC SGPLOT DATA=project.age;
+	VBAR medication_use;
+	run;
+	
+PROC SGPLOT DATA=project.age;
+	VBAR family_history;
+	run;
+	
+PROC SGPLOT DATA=project.age;
+	VBAR mentalhealth_status;
+	run;
+	
+PROC SGPLOT DATA=project.age;
+	VBAR sleep_patterns;
+	run;
+
+PROC SGPLOT DATA=project.age;
+	VBAR income_level;
+	run;
+	
+PROC SGPLOT DATA=project.age;
+	VBAR education_level;
+	run;
