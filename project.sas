@@ -50,14 +50,14 @@ PROC CORR DATA=project.age;
 	pollution_expo cognitive_function bone_density vision_sharpness hearing_ability;
 	run;
 
-/* MAKING HISTOGRAMS FOR THE VARIABLES WITH LOWER COEFFICIENTS */
+/* MAKING HISTOGRAMS FOR THE VARIABLES WITH WEAK COEFFICIENT COEFFICIENTS */
 
 PROC UNIVARIATE DATA= project.age;
     VAR weight chol_level BMI blood_glucose stress_lvl pollution_expo sun_expo;
     HISTOGRAM / NORMAL;  
 RUN;
 
-/* CHECK FOR OUTLIERS IN QUANTITATIVE VARIABLES THAT HAVE R GE 0.5 */
+/*  MAKING HISTOGRAMS FOR THE VARIABLES WITH STRONG COEFFICIENT COEFFICIENTS */
 
 PROC UNIVARIATE DATA=project.age NOPRINT;
 	VAR age systolic_bp diastolic_bp bone_density vision_sharpness hearing_ability cognitive_function;
