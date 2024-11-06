@@ -44,6 +44,7 @@ DATA project.age;
 	run;
 
 /* MAKING HISTOGRAMS FOR THE VARIABLES WITH LOWER COEFFICIENTS */
+
 PROC UNIVARIATE DATA= project.age;
     VAR weight chol_level BMI blood_glucose stress_lvl pollution_expo sun_expo;
     HISTOGRAM / NORMAL;  
