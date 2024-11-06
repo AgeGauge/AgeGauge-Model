@@ -3,9 +3,10 @@ LIBNAME project "C:\Users\Brino\OneDrive\Desktop\Fall 2024\Extra\Datasets\Projec
 /* IMPORT CSV */
 
 PROC IMPORT OUT=project.age
-	DATAFILE= "C:\Users\Brino\OneDrive\Desktop\Fall 2024\Extra\Datasets\Project\AgeDataset.csv"
+	DATAFILE= "/home/u61567054/homework/project/ProjectDataORIGINAL.csv"
 	DBMS= CSV REPLACE;
 	GETNAMES = YES;
+	OPTIONS VALIDVARNAME=V7;
 	run;
 
 PROC CONTENTS DATA=project.age;
