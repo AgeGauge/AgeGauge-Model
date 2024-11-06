@@ -44,21 +44,11 @@ DATA project.age;
 	RENAME Hearing_ability__dB_ = hearing_ability;
 	RENAME Physical_activity_level = activity_level;
 	RENAME Age__years_ = age;
-	RENAME Gender = gender;
-	RENAME BMI = bmi;
-	RENAME Visual_Sharpness = visual_sharpness;
-	RENAME Smoking_Status = smoking_status;
-	RENAME Alcohol_consumption = alcohol_consumption;
-	RENAME Diet = diet;
-	RENAME Chronic_Diseases = chronic_diseases;
-	RENAME Medication_Use = medication_use;
-	RENAME Family_History = family_history;
-	RENAME Cognitive_Function = cognitive_function;
-	RENAME Mental_Health_Status = mentalhealth_status;
-	RENAME Sleep_Patterns = sleep_patterns;
-	RENAME Stress_Levels = stress_levels;
-	RENAME Pollution_Exposure = pollution_expo;
-	RENAME Sun_Exposure = sun_expo;
-	RENAME Education_Level = education_level;
-	RENAME Income_Level = income_level;
+
+ */ separate blood pressure values */;
+
+DATA project.age;
+	SET project.age;
+	systolic=SUBSTR(bp,1,3);
+	diastolic=SUBSTR(bp,5);
 	run;
