@@ -9,7 +9,10 @@ PROC IMPORT OUT=project.age
 
 proc contents data=project.age;
 	run;
-
+	
+PROC CONTENTS DATA=project.age;
+	run;
+	
 */ RENAME VARIABLE FOR EASE OF USE */;
 
 DATA project.age;
@@ -23,10 +26,6 @@ DATA project.age;
 	RENAME Hearing_ability__dB_ = hearing_ability;
 	RENAME Physical_activity_level = activity_level;
 	RENAME Age__years_ = age;
-	RENAME Mental_Health_Status = mentalhealth_status;
-	RENAME Sleep_Patterns = sleep_patterns;
-	RENAME Stress_Levels = stress_levels;
-	run;
 
  */ separate blood pressure values */;
 
@@ -34,4 +33,13 @@ DATA project.age;
 	SET project.age;
 	systolic=SUBSTR(bp,1,3);
 	diastolic=SUBSTR(bp,5);
+	run;
+
+
+	*/ ROUNDING 3 VARIABLES TO DISCRETE LEVEL VALUES */;
+	DATA project.age;
+	SET project.age;
+	stress_lvl = round(stress_levels);
+	pollution_expo = round(pollution_exposure);
+	sun_expo = round(sun_exposure);
 	run;
