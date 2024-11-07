@@ -227,3 +227,92 @@ DATA project.age_medication_reg (KEEP=Individual_ID KEEP=age KEEP=Medication_use
 	SET project.age;
 	IF medication_use='Regular';
 	run;
+
+DATA project.age_history_heartdisease (KEEP=Individual_ID KEEP=age KEEP=family_history);
+	SET project.age;
+	IF family_history = 'Heart Disease';
+	run;
+ 
+DATA project.age_history_diabetes (KEEP=Individual_ID KEEP=age KEEP=family_history);
+	SET project.age;
+	IF family_history = 'Diabetes';
+	run;
+ 
+DATA project.age_history_hypertension (KEEP=Individual_ID KEEP=age KEEP=family_history);
+	SET project.age;
+	IF family_history = 'Hypertension';
+	run;
+ 
+DATA project.age_history_none (KEEP=Individual_ID KEEP=age KEEP=family_history);
+	SET project.age;
+	IF family_history = 'None';
+	run;
+
+DATA project.age_mental_poor (KEEP=Individual_ID KEEP=age KEEP=Mental_Health_Status);
+	SET project.age;
+	IF Mental_Health_Status = 'Poor';
+	run;
+ 
+DATA project.age_mental_fair (KEEP=Individual_ID KEEP=age KEEP=Mental_Health_Status);
+	SET project.age;
+	IF Mental_Health_Status = 'Fair';
+	run;
+DATA project.age_mental_good (KEEP=Individual_ID KEEP=age KEEP=Mental_Health_Status);
+	SET project.age;
+	IF Mental_Health_Status = 'Good';
+	run;
+ 
+DATA project.age_mental_excellent (KEEP=Individual_ID KEEP=age KEEP=Mental_Health_Status);
+	SET project.age;
+	IF Mental_Health_Status = 'Exce';
+	run;
+
+DATA project.age_sleep_insomnia (KEEP=Individual_ID KEEP=age KEEP=Sleep_Patterns);
+	SET project.age;
+	IF Sleep_Patterns = 'Insomnia';
+	run;
+ 
+DATA project.age_sleep_excessive (KEEP=Individual_ID KEEP=age KEEP=Sleep_Patterns);
+	SET project.age;
+	IF Sleep_Patterns = 'Excessive';
+	run;
+ 
+DATA project.age_sleep_normal (KEEP=Individual_ID KEEP=age KEEP=Sleep_Patterns);
+	SET project.age;
+	IF Sleep_Patterns = 'Normal';
+	run;
+ 
+DATA project.age_income_low (KEEP=Individual_ID KEEP=age KEEP=Income_Level);
+	SET project.age;
+	IF Income_Level = 'Low';
+	run;
+ 
+DATA project.age_income_medium (KEEP=Individual_ID KEEP=age KEEP=Income_Level);
+	SET project.age;
+	IF Income_Level = 'Medium';
+	run;
+ 
+DATA project.age_income_high (KEEP=Individual_ID KEEP=age KEEP=Income_Level);
+	SET project.age;
+	IF Income_Level = 'High';
+	run;
+
+DATA project.age_education_highschool (KEEP=Individual_ID KEEP=age KEEP=Education_Level);
+	SET project.age;
+	IF Education_Level = 'High School';
+	run;
+ 
+DATA project.age_education_undergraduate (KEEP=Individual_ID KEEP=age KEEP=Education_Level);
+	SET project.age;
+	IF Education_Level = 'Undergraduate';
+	run;
+ 
+DATA project.age_education_postgraduate (KEEP=Individual_ID KEEP=age KEEP=Education_Level);
+	SET project.age;
+	IF Education_Level = 'Postgraduate';
+	run;
+ 
+DATA project.age_education_none (KEEP=Individual_ID KEEP=age KEEP=Education_Level);
+	SET project.age;
+	IF Education_Level = 'None';
+	run;
