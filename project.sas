@@ -336,3 +336,9 @@ PROC MEANS DATA=project.age Q1 Q3;
         Q3(bone_density)=Q3_bone_density Q3(vision_sharpness)=Q3_vision_sharpness
         Q3(hearing_ability)=Q3_hearing_ability Q3(cognitive_function)=Q3_cognitive_function;
 	RUN;
+
+/* FIND DESCRIPTIVE STATISTICS FOR STRONG CORRELATION VARIABLES */;
+
+PROC MEANS DATA=project.age N MEAN STDDEV MEDIAN Q1 Q3 QRANGE MIN MAX RANGE;
+	VAR systolic_bp diastolic_bp vision_sharpness hearing_ability cognitive_function bone_density;
+	run;
