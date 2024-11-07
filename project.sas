@@ -48,6 +48,7 @@ DATA project.age;
 
  /* CHECK CORRELATION COEFFICIENT OF ALL QUANTITATIVE VARIABLES */
 	
+TITLE="FIND CORRELATION COEFFICIENTS FOR ALL NUMERIC VARIABLES";
 PROC CORR DATA=project.age;
 	VAR age height weight systolic_bp diastolic_bp chol_level bmi blood_glucose stress_lvl sun_expo
 	pollution_expo cognitive_function bone_density vision_sharpness hearing_ability;
@@ -55,64 +56,87 @@ PROC CORR DATA=project.age;
 
 /* MAKING HISTOGRAMS FOR THE VARIABLES WITH WEAK COEFFICIENT COEFFICIENTS */
 
+
+TITLE="HISTOGRAMS FOR NUMERIC VARIABLES WITH LOW CORRELATION COEFFICIENTS";
 PROC UNIVARIATE DATA= project.age;
     VAR weight chol_level BMI blood_glucose stress_lvl pollution_expo sun_expo;
-    HISTOGRAM / NORMAL;  
-RUN;
+    HISTOGRAM / NORMAL;
+    run;
 
 /*  MAKING HISTOGRAMS FOR THE VARIABLES WITH STRONG COEFFICIENT COEFFICIENTS */
 
+TITLE='HISTOGRAMS FOR NUMERIC VARIABLES WITH MEDIUM TO HIGH CORRELATION COEFFICIENTS';
 PROC UNIVARIATE DATA=project.age NOPRINT;
 	VAR age systolic_bp diastolic_bp bone_density vision_sharpness hearing_ability cognitive_function;
 	HISTOGRAM / NORMAL;
 	run;
+	
+/* MAKE FREQUENCY TABLES FOR CATAGORICAL DATA */
 
- /* MAKE BAR CHART FOR CATAGORICAL VARIABLES */
+TITLE='FREQUENCY TABLE FOR CATAGORICAL VARIABLES';
+PROC FREQ DATA=project.age;
+	table gender activity_level smoking_status alcohol_consumption diet chronic_diseases medication_use
+	family_history mental_health_status sleep_patterns income_level education_level;
+	run;
 
+/* MAKE BAR CHART FOR CATAGORICAL VARIABLES */
+
+TITLE="BAR CHART FOR ACTIVITY LEVELS";
 PROC SGPLOT DATA=project.age;
 	VBAR activity_level;
 	run;
 	
+TITLE="BAR CHART FOR GENDER";
 PROC SGPLOT DATA=project.age;
 	VBAR gender;
 	run;
 
+TITLE="BAR CHART FOR SMOKING STATUS";
 PROC SGPLOT DATA=project.age;
 	VBAR smoking_status;
 	run;
 
+TITLE="BAR CHART FOR ALCOHOL CONSUMPTION"
 PROC SGPLOT DATA=project.age;
 	VBAR alcohol_consumption;
 	run;
 	
+TITLE="BAR CHART FOR DIET";
 PROC SGPLOT DATA=project.age;
 	VBAR diet;
 	run;
 	
+TITLE="BAR CHART FOR CHRONIC DISEASES";
 PROC SGPLOT DATA=project.age;
 	VBAR chronic_diseases;
 	run;
 	
+TITLE="BAR CHART FOR MEDICATION USE";
 PROC SGPLOT DATA=project.age;
 	VBAR medication_use;
 	run;
 	
+TITLE="BAR CHART FOR FAMILY HISTORY";
 PROC SGPLOT DATA=project.age;
 	VBAR family_history;
 	run;
 	
+TITLE="BAR CHART FOR MENTAL HEALTH STATUS";
 PROC SGPLOT DATA=project.age;
-	VBAR mentalhealth_status;
+	VBAR mental_health_status;
 	run;
 	
+TITLE="BAR CHART FOR SLEEP PATTERNS";
 PROC SGPLOT DATA=project.age;
 	VBAR sleep_patterns;
 	run;
 
+TITLE="BAR CHART FOR INCOME LEVEL";
 PROC SGPLOT DATA=project.age;
 	VBAR income_level;
 	run;
 	
+TITLE="BAR CHART FOR EDUCATION LEVEL";
 PROC SGPLOT DATA=project.age;
 	VBAR education_level;
 	run;
