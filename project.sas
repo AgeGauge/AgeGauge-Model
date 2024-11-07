@@ -116,3 +116,114 @@ PROC SGPLOT DATA=project.age;
 PROC SGPLOT DATA=project.age;
 	VBAR education_level;
 	run;
+
+/* MAKE SUBSET DATASETS FOR CATAGORICAL VARIABLES AND AGE */
+
+DATA project.age_gender_male (KEEP=Individual_ID KEEP=age KEEP=gender);
+	SET project.age;
+	IF gender='Male';
+	run;
+	
+DATA project.age_gender_female (KEEP=Individual_ID KEEP=age KEEP=gender);
+	SET project.age;
+	IF gender='Female';
+	run;
+	
+DATA project.age_activty_low (KEEP=Individual_ID KEEP=age KEEP=activity_level);
+	SET project.age;
+	IF activity_level='Low';
+	run;
+
+DATA project.age_activty_moderate (KEEP=Individual_ID KEEP=age KEEP=activity_level);
+	SET project.age;
+	IF activity_level='Moderate';
+	run;	
+	
+DATA project.age_activty_high (KEEP=Individual_ID KEEP=age KEEP=activity_level);
+	SET project.age;
+	IF activity_level='High';
+	run;
+	
+DATA project.age_smoking_never (KEEP=Individual_ID KEEP=age KEEP=smoking_status);
+	SET project.age;
+	IF smoking_status='Never';
+	run;
+	
+DATA project.age_smoking_former (KEEP=Individual_ID KEEP=age KEEP=smoking_status);
+	SET project.age;
+	IF smoking_status='Former';
+	run;
+		
+DATA project.age_smoking_current (KEEP=Individual_ID KEEP=age KEEP=smoking_status);
+	SET project.age;
+	IF smoking_status='Current';
+	run;
+	
+DATA project.age_alcohol_none (KEEP=Individual_ID KEEP=age KEEP=alcohol_consumption);
+	SET project.age;
+	IF alcohol_consumption='None';
+	run;
+	
+DATA project.age_alcohol_freq (KEEP=Individual_ID KEEP=age KEEP=alcohol_consumption);
+	SET project.age;
+	IF alcohol_consumption='Frequent';
+	run;
+	
+DATA project.age_alcohol_occasion (KEEP=Individual_ID KEEP=age KEEP=alcohol_consumption);
+	SET project.age;
+	IF alcohol_consumption='Occasional';
+	run;
+	
+DATA project.age_diet_balanced (KEEP=Individual_ID KEEP=age KEEP=diet);
+	SET project.age;
+	IF diet='Balanced';
+	run;
+	
+DATA project.age_diet_lowcarb (KEEP=Individual_ID KEEP=age KEEP=diet);
+	SET project.age;
+	IF diet='Low-carb';
+	run;
+	
+DATA project.age_diet_veg (KEEP=Individual_ID KEEP=age KEEP=diet);
+	SET project.age;
+	IF diet='Vegetarian';
+	run;
+	
+DATA project.age_diet_highfat (KEEP=Individual_ID KEEP=age KEEP=diet);
+	SET project.age;
+	IF diet='High-fat';
+	run;
+	
+DATA project.age_chronic_hyper (KEEP=Individual_ID KEEP=age KEEP=chronic_diseases);
+	SET project.age;
+	IF chronic_diseases='Hypertension';
+	run;
+	
+DATA project.age_chronic_heart (KEEP=Individual_ID KEEP=age KEEP=chronic_diseases);
+	SET project.age;
+	IF chronic_diseases='Heart Disease';
+	run;
+DATA project.age_chronic_diabetes (KEEP=Individual_ID KEEP=age KEEP=chronic_diseases);
+	SET project.age;
+	IF chronic_diseases='Diabetes';
+	run;
+
+DATA project.age_chronic_none (KEEP=Individual_ID KEEP=age KEEP=chronic_diseases);
+	SET project.age;
+	IF chronic_diseases='None';
+	run;
+	
+DATA project.age_medication_none (KEEP=Individual_ID KEEP=age KEEP=Medication_use);
+	SET project.age;
+	IF medication_use='None';
+	run;
+
+DATA project.age_medication_occasion (KEEP=Individual_ID KEEP=age KEEP=Medication_use);
+	SET project.age;
+	IF medication_use='Occasional';
+	run;
+	
+DATA project.age_medication_reg (KEEP=Individual_ID KEEP=age KEEP=Medication_use);
+	SET project.age;
+	IF medication_use='Regular';
+	run;
