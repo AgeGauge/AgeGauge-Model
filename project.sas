@@ -342,3 +342,35 @@ PROC MEANS DATA=project.age Q1 Q3;
 PROC MEANS DATA=project.age N MEAN STDDEV MEDIAN Q1 Q3 QRANGE MIN MAX RANGE;
 	VAR systolic_bp diastolic_bp vision_sharpness hearing_ability cognitive_function bone_density;
 	run;
+
+/* HISTOGRAMS FOR VARIABLES WITH STRONG CORRELATION COEFFICIENT */
+	
+PROC UNIVARIATE DATA=project.age NOPRINT;
+	CLASS age;
+	HISTOGRAM systolic_bp;
+	run;
+	
+PROC UNIVARIATE DATA=project.age NOPRINT;
+	CLASS age;
+	HISTOGRAM diastolic_bp;
+	run;
+	
+PROC UNIVARIATE DATA=project.age NOPRINT;
+	CLASS age;
+	HISTOGRAM vision_sharpness;
+	run;
+	
+PROC UNIVARIATE DATA=project.age NOPRINT;
+	CLASS age;
+	HISTOGRAM hearing_ability;
+	run;
+	
+PROC UNIVARIATE DATA=project.age NOPRINT;
+	CLASS age;
+	HISTOGRAM cognitive_function;
+	run;
+
+PROC UNIVARIATE DATA=project.age NOPRINT;
+	CLASS age;
+	HISTOGRAM bone_density;
+	run;
