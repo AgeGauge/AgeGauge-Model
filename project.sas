@@ -48,6 +48,7 @@ DATA project.age;
 
  /* CHECK CORRELATION COEFFICIENT OF ALL QUANTITATIVE VARIABLES */
 
+TITLE "CORRELATION COEFFICIENTS FOR ALL NUMERIC VARIABLES";
 PROC CORR DATA=project.age;
 	VAR age height weight systolic_bp diastolic_bp chol_level bmi blood_glucose stress_lvl sun_expo
 	pollution_expo cognitive_function bone_density vision_sharpness hearing_ability;
@@ -55,6 +56,7 @@ PROC CORR DATA=project.age;
 
 /* MAKING HISTOGRAMS FOR THE VARIABLES WITH WEAK COEFFICIENT COEFFICIENTS */
 
+TITLE "HISTOGRAMS FOR WEAK CORRELATION COEFFICIENTS";
 PROC UNIVARIATE DATA= project.age;
     VAR weight chol_level BMI blood_glucose stress_lvl pollution_expo sun_expo;
     HISTOGRAM / NORMAL;
@@ -62,6 +64,7 @@ PROC UNIVARIATE DATA= project.age;
 
 /*  MAKING HISTOGRAMS FOR THE VARIABLES WITH STRONG COEFFICIENT COEFFICIENTS */
 
+TITLE "HISOGRAMS FOR STRONGER CORRELATION COEFFICIENTS";
 PROC UNIVARIATE DATA=project.age NOPRINT;
 	VAR age systolic_bp diastolic_bp bone_density vision_sharpness hearing_ability cognitive_function;
 	HISTOGRAM / NORMAL;
@@ -69,6 +72,7 @@ PROC UNIVARIATE DATA=project.age NOPRINT;
 	
 /* MAKE FREQUENCY TABLES FOR CATAGORICAL DATA */
 
+TITLE "FREQUENCY TABLES FOR CATAGORICAL DATA";
 PROC FREQ DATA=project.age;
 	table gender activity_level smoking_status alcohol_consumption diet chronic_diseases medication_use
 	family_history mental_health_status sleep_patterns income_level education_level;
@@ -76,6 +80,7 @@ PROC FREQ DATA=project.age;
 
 /* MAKE BAR CHART FOR CATAGORICAL VARIABLES */
 
+TITLE "BAR CHARTS FOR CATAGORICAL VARIABLES";
 PROC SGPLOT DATA=project.age;
 	VBAR activity_level;
 	run;
@@ -326,6 +331,7 @@ DATA project.age_education_none (KEEP=Individual_ID KEEP=age KEEP=Education_Leve
  
  /*  QUARTILE INFORMATION FOR QUANTITATIVE VARIABLES */
 
+TITLE "QUARTILE INFORMATION FOR NUMERIC VARIABLES";
 PROC MEANS DATA=project.age Q1 Q3;
     VAR age systolic_bp diastolic_bp bone_density vision_sharpness hearing_ability cognitive_function;
     OUTPUT OUT=project.quartile 
@@ -339,12 +345,14 @@ PROC MEANS DATA=project.age Q1 Q3;
 
 /* FIND DESCRIPTIVE STATISTICS FOR STRONG CORRELATION VARIABLES */;
 
+TITLE "DESCRIPTIVE STATISTICS FOR STRONG CORRELATION COEFFICIENT VARIABLES";
 PROC MEANS DATA=project.age N MEAN STDDEV MEDIAN Q1 Q3 QRANGE MIN MAX RANGE;
 	VAR systolic_bp diastolic_bp vision_sharpness hearing_ability cognitive_function bone_density;
 	run;
 
 /* HISTOGRAMS FOR VARIABLES WITH STRONG CORRELATION COEFFICIENT */
-	
+
+TITLE "HISTORGRAMS FOR STRONG CORRELATION COEFFICIENT VARIABLES";	
 PROC UNIVARIATE DATA=project.age NOPRINT;
 	CLASS age;
 	HISTOGRAM systolic_bp;
