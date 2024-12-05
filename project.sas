@@ -390,6 +390,6 @@ run;
 
 /* MULTIPLE LINEAR REGRESSION MODEL */
 
-PROC REG DATA=health_data_clean;
+PROC REG DATA=project.age;
     MODEL Age = smoking_status_current smoking_status_former education_rank height weight chol_level BMI blood_glucose bone_density vision_sharpness hearing_ability cognitive_function systolic_bp diastolic_bp stress_lvl pollution_expo;
 	run;
