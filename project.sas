@@ -393,3 +393,16 @@ run;
 PROC REG DATA=project.age;
     MODEL Age = smoking_status_current smoking_status_former education_rank height weight chol_level BMI blood_glucose bone_density vision_sharpness hearing_ability cognitive_function systolic_bp diastolic_bp stress_lvl pollution_expo;
 	run;
+
+
+/* CREATE RESIDUAL PLOTS */
+
+PROC REG DATA=project.age;
+    MODEL Age = smoking_status_current smoking_status_former education_rank height weight chol_level BMI blood_glucose bone_density vision_sharpness hearing_ability cognitive_function systolic_bp diastolic_bp stress_lvl pollution_expo;
+    OUTPUT OUT=regout RSTUDENT=studentresidual; 
+RUN;
+
+PROC SGPLOT DATA=regout;
+    SCATTER X=studentresidual Y=Age;
+    TITLE "Residuals vs Age Scatter Plot";
+RUN;
