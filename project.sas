@@ -375,6 +375,7 @@ PROC TTEST DATA=project.age ALPHA=0.05;
 	run;
 
 /* DATA TRANSFORMATION FOR CATEGORICAL VARIABLES */
+
  DATA project.age;
     SET project.age;
     IF smoking_status = 'Current' THEN smoking_status_current = 1; ELSE Smoking_Current = 0;
@@ -384,3 +385,9 @@ PROC TTEST DATA=project.age ALPHA=0.05;
     ELSE IF education_level = 'Undergraduate' THEN education_rank = 2;
     ELSE IF education_level = 'Postgraduate' THEN education_rank = 3;
     run;
+
+/* MULTIPLE LINEAR REGRESSION MODEL */
+
+PROC REG DATA=health_data_clean;
+    MODEL Age = smoking_status_current smoking_status_former education_rank height weight chol_level BMI blood_glucose bone_density vision_sharpness hearing_ability cognitive_function systolic_bp diastolic_bp stress_lvl pollution_expo;
+	run;
