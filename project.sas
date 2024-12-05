@@ -150,3 +150,30 @@ TITLE "DESCRIPTIVE STATISTICS FOR STRONG CORRELATION COEFFICIENT VARIABLES";
 PROC MEANS DATA=project.age N MEAN STDDEV MEDIAN Q1 Q3 QRANGE MIN MAX RANGE;
 	VAR systolic_bp diastolic_bp vision_sharpness hearing_ability cognitive_function bone_density;
 	run;
+
+/* SCATTERPLOTS FOR VARIABLES WITH >|0.5| CORRELATION COEFFICIENT */;
+
+TITLE "SCATTERPLOTS FOR VARIABLES WITH >|0.5| CORRELATION COEFFICIENT";
+PROC CORR DATA=project.age PLOTS=SCATTER (NVAR=ALL);
+	VAR age systolic_bp;
+	run;
+	
+PROC CORR DATA=project.age PLOTS=SCATTER (NVAR=ALL);
+	VAR age diastolic_bp;
+	run;
+	
+PROC CORR DATA=project.age PLOTS=SCATTER (NVAR=ALL);
+	VAR age cognitive_function;
+	run;
+	
+PROC CORR DATA=project.age PLOTS=SCATTER (NVAR=ALL);
+	VAR age bone_density;
+	run;
+
+PROC CORR DATA=project.age PLOTS=SCATTER (NVAR=ALL);
+	VAR age vision_sharpness;
+	run;
+
+PROC CORR DATA=project.age PLOTS=SCATTER (NVAR=ALL);
+	VAR age hearing_ability;
+	run;
