@@ -264,3 +264,127 @@ PROC SGPLOT DATA=project.age;
     yaxis label='Age (years)';
 run;
 
+/* ANOVA Tests for All Categoical Variables */;
+PROC ANOVA DATA=project.age;
+	CLASS gender;
+	MODEL age = gender;
+	MEANS gender / TUKEY;
+	run;
+	
+PROC ANOVA DATA=project.age;
+	CLASS activity_level;
+	MODEL age = activity_level;
+	MEANS activity_level / TUKEY;
+	run;
+	
+PROC ANOVA DATA=project.age;
+	CLASS smoking_status;
+	MODEL age = smoking_status;
+	MEANS smoking_status / TUKEY;
+	run;
+	
+PROC ANOVA DATA=project.age;
+	CLASS alcohol_consumption;
+	MODEL age = alcohol_consumption;
+	MEANS alcohol_consumption / TUKEY;
+	run;
+	
+PROC ANOVA DATA=project.age;
+	CLASS diet;
+	MODEL age = diet;
+	MEANS diet / TUKEY;
+	run;
+	
+PROC ANOVA DATA=project.age;
+	CLASS chronic_diseases;
+	MODEL age = chronic_diseases;
+	MEANS chronic_diseases / TUKEY;
+	run;
+	
+PROC ANOVA DATA=project.age;
+	CLASS medication_use;
+	MODEL age = medication_use;
+	MEANS medication_use / TUKEY;
+	run;
+	
+PROC ANOVA DATA=project.age;
+	CLASS family_history;
+	MODEL age = family_history;
+	MEANS family_history / TUKEY;
+	run;
+	
+PROC ANOVA DATA=project.age;
+	CLASS mental_health_status;
+	MODEL age = mental_health_status;
+	MEANS mental_health_status / TUKEY;
+	run;
+	
+PROC ANOVA DATA=project.age;
+	CLASS education_level;
+	MODEL age = education_level;
+	MEANS education_level / TUKEY;
+	run;
+	
+PROC ANOVA DATA=project.age;
+	CLASS income_level;
+	MODEL age = income_level;
+	MEANS income_level / TUKEY;
+	run;
+	
+/* T-Tests for all quantitative variables */;
+
+PROC TTEST DATA=project.age ALPHA=0.05;
+	PAIRED age*height;
+	run;
+	
+PROC TTEST DATA=project.age ALPHA=0.05;
+	PAIRED age*weight;
+	run;
+
+PROC TTEST DATA=project.age ALPHA=0.05;
+	PAIRED age*chol_level;
+	run;
+
+PROC TTEST DATA=project.age ALPHA=0.05;
+	PAIRED age*BMI;
+	run;
+	
+PROC TTEST DATA=project.age ALPHA=0.05;
+	PAIRED age*blood_glucose;
+	run;
+	
+PROC TTEST DATA=project.age ALPHA=0.05;
+	PAIRED age*bone_density;
+	run;
+	
+PROC TTEST DATA=project.age ALPHA=0.05;
+	PAIRED age*vision_sharpness;
+	run;
+	
+PROC TTEST DATA=project.age ALPHA=0.05;
+	PAIRED age*hearing_ability;
+	run;
+	
+PROC TTEST DATA=project.age ALPHA=0.05;
+	PAIRED age*cognitive_function;
+	run;
+	
+PROC TTEST DATA=project.age ALPHA=0.05;
+	PAIRED age*systolic_bp;
+	run;
+	
+PROC TTEST DATA=project.age ALPHA=0.05;
+	PAIRED age*diastolic_bp;
+	run;
+	
+PROC TTEST DATA=project.age ALPHA=0.05;
+	PAIRED age*stress_lvl;
+	run;
+
+PROC TTEST DATA=project.age ALPHA=0.05;
+	PAIRED age*pollution_expo;
+	run;
+	
+PROC TTEST DATA=project.age ALPHA=0.05;
+	PAIRED age*sun_expo;
+	run;
