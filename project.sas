@@ -21,7 +21,7 @@ DATA project.age;
 	RENAME Blood_pressure__s_d_ = bp;
 	RENAME Cholesterol_level__mg_dL_ = chol_level;
 	RENAME Blood_glucose_level__mg_dL_ = blood_glucose;
-	RENAME var8 = bone_density;
+	RENAME var9 = bone_density;
 	RENAME Hearing_ability__dB_ = hearing_ability;
 	RENAME Physical_activity_level = activity_level;
 	RENAME Age__years_ = age;
