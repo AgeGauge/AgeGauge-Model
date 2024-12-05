@@ -392,11 +392,10 @@ PROC TTEST DATA=project.age ALPHA=0.05;
 /* DATA TRANSFORMATION FOR CATEGORICAL VARIABLES */
  DATA project.age;
     SET project.age;
-    if smoking_status = 'Current' then smoking_status_current = 1; else Smoking_Current = 0;
-    if smoking_status = 'Former' then smoking_status_former = 1; else Smoking_Former = 0;
-
-    if education_level = 'None' then education_rank = 0;
-    else if education_level = 'High School' then education_rank = 1;
-    else if education_level = 'Undergraduate' then education_rank = 2;
-    else if education_level = 'Postgraduate' then education_rank = 3;
-run;
+    IF smoking_status = 'Current' THEN smoking_status_current = 1; ELSE Smoking_Current = 0;
+    IF smoking_status = 'Former' THEN smoking_status_former = 1; ELSE Smoking_Former = 0;
+    if education_level = 'None' THEN education_rank = 0;
+    ELSE IF education_level = 'High School' THEN education_rank = 1;
+    ELSE IF education_level = 'Undergraduate' THEN education_rank = 2;
+    ELSE IF education_level = 'Postgraduate' THEN education_rank = 3;
+    run;
