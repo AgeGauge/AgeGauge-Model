@@ -129,21 +129,6 @@ PROC SGPLOT DATA=project.age;
 	VBAR education_level;
 	run;
 
- 
- /*  QUARTILE INFORMATION FOR QUANTITATIVE VARIABLES */
-
-TITLE "QUARTILE INFORMATION FOR NUMERIC VARIABLES";
-PROC MEANS DATA=project.age Q1 Q3;
-    VAR age systolic_bp diastolic_bp bone_density vision_sharpness hearing_ability cognitive_function;
-    OUTPUT OUT=project.quartile 
-	Q1(age)=Q1_age Q1(systolic_bp)=Q1_systolic_bp Q1(diastolic_bp)=Q1_diastolic_bp
-        Q1(bone_density)=Q1_bone_density Q1(vision_sharpness)=Q1_vision_sharpness
-        Q1(hearing_ability)=Q1_hearing_ability Q1(cognitive_function)=Q1_cognitive_function
-        Q3(age)=Q3_age Q3(systolic_bp)=Q3_systolic_bp Q3(diastolic_bp)=Q3_diastolic_bp
-        Q3(bone_density)=Q3_bone_density Q3(vision_sharpness)=Q3_vision_sharpness
-        Q3(hearing_ability)=Q3_hearing_ability Q3(cognitive_function)=Q3_cognitive_function;
-	RUN;
-
 /* FIND DESCRIPTIVE STATISTICS FOR STRONG CORRELATION VARIABLES */;
 
 TITLE "DESCRIPTIVE STATISTICS FOR STRONG CORRELATION COEFFICIENT VARIABLES";
