@@ -179,6 +179,7 @@ PROC CORR DATA=project.age PLOTS=SCATTER (NVAR=ALL);
 	run;
 
 /* SIDE-BY-SIDE BOXPLOTS FOR CATEGORICAL VARIABLES */
+
 PROC SGPLOT DATA=project.age;
     VBOX age / category=activity_level;
     title 'Side-by-Side Box Plots of Age by Activity Level';
