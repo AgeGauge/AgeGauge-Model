@@ -388,3 +388,15 @@ PROC TTEST DATA=project.age ALPHA=0.05;
 PROC TTEST DATA=project.age ALPHA=0.05;
 	PAIRED age*sun_expo;
 	run;
+
+/* DATA TRANSFORMATION FOR CATEGORICAL VARIABLES */
+ DATA project.age;
+    SET project.age;
+    if smoking_status = 'Current' then smoking_status_current = 1; else Smoking_Current = 0;
+    if smoking_status = 'Former' then smoking_status_former = 1; else Smoking_Former = 0;
+
+    if education_level = 'None' then education_rank = 0;
+    else if education_level = 'High School' then education_rank = 1;
+    else if education_level = 'Undergraduate' then education_rank = 2;
+    else if education_level = 'Postgraduate' then education_rank = 3;
+run;
