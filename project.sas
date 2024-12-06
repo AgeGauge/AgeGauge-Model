@@ -53,10 +53,10 @@ DATA project.age;
 	DROP systolic diastolic stress_levels pollution_exposure sun_exposure;
 	run;
  
- /* CHECK CORRELATION COEFFICIENT OF ALL QUANTITATIVE VARIABLES */
+/* CHECK CORRELATION COEFFICIENT OF ALL QUANTITATIVE VARIABLES */
 
 TITLE "CORRELATION COEFFICIENTS FOR ALL NUMERIC VARIABLES";
-PROC CORR DATA=project.age;
+PROC CORR DATA=project.age NOSIMPLE;
 	VAR age height weight systolic_bp diastolic_bp chol_level bmi blood_glucose stress_lvl sun_expo
 	pollution_expo cognitive_function bone_density vision_sharpness hearing_ability;
 	run;
