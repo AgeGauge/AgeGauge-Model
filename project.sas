@@ -46,6 +46,13 @@ DATA project.age;
 	sun_expo = round(sun_exposure);
 	run;
 
+/* REMOVE UNNECCESSARY VARIABLES */;
+
+DATA project.age;
+	SET project.age;
+	DROP systolic diastolic stress_levels pollution_exposure sun_exposure;
+	run;
+ 
  /* CHECK CORRELATION COEFFICIENT OF ALL QUANTITATIVE VARIABLES */
 
 TITLE "CORRELATION COEFFICIENTS FOR ALL NUMERIC VARIABLES";
