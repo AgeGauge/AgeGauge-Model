@@ -175,88 +175,88 @@ PROC CORR DATA=project.age PLOTS=SCATTER (NVAR=ALL) NOSIMPLE NOCORR;
 /* SIDE-BY-SIDE BOXPLOTS FOR CATEGORICAL VARIABLES */
 
 PROC SGPLOT DATA=project.age;
-    VBOX age / category=activity_level;
-    title 'Side-by-Side Box Plots of Age by Activity Level';
-    xaxis label='Activity Level';
-    yaxis label='Age (years)';
-run;
+	VBOX age / category=activity_level;
+	title 'Side-by-Side Box Plots of Age by Activity Level';
+	xaxis label='Activity Level';
+  	yaxis label='Age (years)';
+	run;
 
 PROC SGPLOT DATA=project.age;
-    VBOX age / category=gender;
-    title 'Side-by-Side Box Plots of Age by Gender';
-    xaxis label='Gender';
-    yaxis label='Age (years)';
-run;
+	VBOX age / category=gender;
+	title 'Side-by-Side Box Plots of Age by Gender';
+	xaxis label='Gender';
+	yaxis label='Age (years)';
+	run;
 
 PROC SGPLOT DATA=project.age;
-    VBOX age / category=smoking_status;
-    title 'Side-by-Side Box Plots of Age by Smoking Status';
-    xaxis label='Smoking Status';
-    yaxis label='Age (years)';
-run;
+	VBOX age / category=smoking_status;
+	title 'Side-by-Side Box Plots of Age by Smoking Status';
+	xaxis label='Smoking Status';
+	yaxis label='Age (years)';
+	run;
 
 PROC SGPLOT DATA=project.age;
-    VBOX age / category=alcohol_consumption;
-    title 'Side-by-Side Box Plots of Age by Alcohol Consumption';
-    xaxis label='Alcohol Consumption';
-    yaxis label='Age (years)';
-run;
+	VBOX age / category=alcohol_consumption;
+	title 'Side-by-Side Box Plots of Age by Alcohol Consumption';
+	xaxis label='Alcohol Consumption';
+	yaxis label='Age (years)';
+	run;
 
 PROC SGPLOT DATA=project.age;
-    VBOX age / category=diet;
-    title 'Side-by-Side Box Plots of Age by Diet';
-    xaxis label='Diet';
-    yaxis label='Age (years)';
-run;
+	VBOX age / category=diet;
+	title 'Side-by-Side Box Plots of Age by Diet';
+	xaxis label='Diet';
+	yaxis label='Age (years)';
+	run;
 
 PROC SGPLOT DATA=project.age;
-    VBOX age / category=chronic_diseases;
-    title 'Side-by-Side Box Plots of Age by Chronic Diseases';
-    xaxis label='Chronic Diseases';
-    yaxis label='Age (years)';
-run;
+	VBOX age / category=chronic_diseases;
+	title 'Side-by-Side Box Plots of Age by Chronic Diseases';
+	xaxis label='Chronic Diseases';
+	yaxis label='Age (years)';
+	run;
 
 PROC SGPLOT DATA=project.age;
-    VBOX age / category=medication_use;
-    title 'Side-by-Side Box Plots of Age by Medication Use';
-    xaxis label='Medication Use';
-    yaxis label='Age (years)';
-run;
+	VBOX age / category=medication_use;
+	title 'Side-by-Side Box Plots of Age by Medication Use';
+	xaxis label='Medication Use';
+	yaxis label='Age (years)';
+	run;
 
 PROC SGPLOT DATA=project.age;
-    VBOX age / category=family_history;
-    title 'Side-by-Side Box Plots of Age by Family History';
-    xaxis label='Family History';
-    yaxis label='Age (years)';
-run;
+	VBOX age / category=family_history;
+	title 'Side-by-Side Box Plots of Age by Family History';
+	xaxis label='Family History';
+	yaxis label='Age (years)';
+	run;
 
 PROC SGPLOT DATA=project.age;
-    VBOX age / category=mental_health_status;
-    title 'Side-by-Side Box Plots of Age by Mental Health Status';
-    xaxis label='Mental Health Status';
-    yaxis label='Age (years)';
-run;
+	VBOX age / category=mental_health_status;
+	title 'Side-by-Side Box Plots of Age by Mental Health Status';
+	xaxis label='Mental Health Status';
+	yaxis label='Age (years)';
+	run;
 
 PROC SGPLOT DATA=project.age;
-    VBOX age / category=sleep_patterns;
-    title 'Side-by-Side Box Plots of Age by Sleep Patterns';
-    xaxis label='Sleep Patterns';
-    yaxis label='Age (years)';
-run;
+	VBOX age / category=sleep_patterns;
+	title 'Side-by-Side Box Plots of Age by Sleep Patterns';
+	xaxis label='Sleep Patterns';
+	yaxis label='Age (years)';
+	run;
 
 PROC SGPLOT DATA=project.age;
-    VBOX age / category=income_level;
-    title 'Side-by-Side Box Plots of Age by Income Level';
-    xaxis label='Income Level';
-    yaxis label='Age (years)';
-run;
+	VBOX age / category=income_level;
+	title 'Side-by-Side Box Plots of Age by Income Level';
+	xaxis label='Income Level';
+	yaxis label='Age (years)';
+	run;
 
 PROC SGPLOT DATA=project.age;
-    VBOX age / category=education_level;
-    title 'Side-by-Side Box Plots of Age by Education Level';
-    xaxis label='Education Level';
-    yaxis label='Age (years)';
-run;
+	VBOX age / category=education_level;
+	title 'Side-by-Side Box Plots of Age by Education Level';
+	xaxis label='Education Level';
+	yaxis label='Age (years)';
+	run;
 
 /* ANOVA Tests for All Categoical Variables */;
 PROC ANOVA DATA=project.age;
