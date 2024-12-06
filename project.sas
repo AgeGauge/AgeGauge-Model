@@ -61,18 +61,20 @@ PROC CORR DATA=project.age;
 	pollution_expo cognitive_function bone_density vision_sharpness hearing_ability;
 	run;
 
-/* MAKING HISTOGRAMS FOR THE VARIABLES WITH WEAK COEFFICIENT COEFFICIENTS */
+/* MAKING HISTOGRAMS FOR THE VARIABLES WITH LOWER COEFFICIENTS */
 
 TITLE "HISTOGRAMS FOR WEAK CORRELATION COEFFICIENTS";
+ODS SELECT HISTOGRAM;
 PROC UNIVARIATE DATA= project.age;
     VAR weight chol_level BMI blood_glucose stress_lvl pollution_expo sun_expo;
-    HISTOGRAM / NORMAL;
-    run;
+    HISTOGRAM / NORMAL;  
+	RUN;
 
-/*  MAKING HISTOGRAMS FOR THE VARIABLES WITH STRONG COEFFICIENT COEFFICIENTS */
+/* HISTOGRAMS FOR STRONGER CORRELATION COEFFICIENTS */
 
 TITLE "HISOGRAMS FOR STRONGER CORRELATION COEFFICIENTS";
-PROC UNIVARIATE DATA=project.age NOPRINT;
+ODS SELECT HISTOGRAM;
+PROC UNIVARIATE DATA=project.age;
 	VAR age systolic_bp diastolic_bp bone_density vision_sharpness hearing_ability cognitive_function;
 	HISTOGRAM / NORMAL;
 	run;
