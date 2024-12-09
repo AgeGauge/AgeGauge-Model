@@ -174,6 +174,7 @@ PROC CORR DATA=project.age PLOTS=SCATTER (NVAR=ALL) NOSIMPLE NOCORR;
 
 /* SIDE-BY-SIDE BOXPLOTS FOR CATEGORICAL VARIABLES */
 
+TITLE "SIDE-BY-SIDE BOXPLOTS FOR CATEGORICAL VARIABLES";
 PROC SGPLOT DATA=project.age;
 	VBOX age / category=activity_level;
 	title 'Side-by-Side Box Plots of Age by Activity Level';
@@ -259,6 +260,7 @@ PROC SGPLOT DATA=project.age;
 	run;
 
 /* ANOVA Tests for All Categoical Variables */;
+TITLE "ANOVA TESTS FOR ALL CATEGORICAL VARIABLES USING AGE AS DEPENDANT VARIABLES";
 PROC ANOVA DATA=project.age;
 	CLASS gender;
 	MODEL age = gender;
@@ -399,12 +401,14 @@ run;
 
 /* BASELINE LINEAR REGRESSION MODEL */
 
+TITLE "BASELINE LINEAR REGRESSION MODEL";
 PROC REG DATA=project.age;
     MODEL Age = bone_density;
 	run;
 
 /* MULTIPLE LINEAR REGRESSION MODEL */
 
+TITLE "MULTIPLE LINEAR REGRESSION MODEL";
 PROC REG DATA=project.age;
     MODEL Age = smoking_status_current smoking_status_former education_rank height weight chol_level BMI blood_glucose bone_density vision_sharpness hearing_ability cognitive_function systolic_bp diastolic_bp stress_lvl pollution_expo;
 	run;
