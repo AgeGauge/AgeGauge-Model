@@ -9,7 +9,9 @@ The goal of this project was to determine the age of a patient using common heal
 
 User Instructions:
 ==============
-We are still in the beginning stages of this project. As we upload more code, we will update instructions on how to use this model. 
+This code was built in SAS. 
+To utilize the code, copy into a blank SAS program. Change the filepath for the proc import statement to the filepath of your dataset's location. The code will be ready to run.
+To utilize the linear regression model, simply plug in values you have into the equation for the appropriate variables (see statistical report for equation and variable breakdown). The resulting output will be the biological age for the given information. 
 
 Techology Requirements:
 =======================
