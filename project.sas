@@ -398,17 +398,25 @@ PROC TTEST DATA=project.age ALPHA=0.05;
     else if education_level = 'Postgraduate' then education_rank = 3;
 run;
 
-
 /* BASELINE LINEAR REGRESSION MODEL */
 
 TITLE "BASELINE LINEAR REGRESSION MODEL";
 PROC REG DATA=project.age;
     MODEL Age = bone_density;
 	run;
-
-/* MULTIPLE LINEAR REGRESSION MODEL */
+	
+/* LINEAR MODEL */;
 
 TITLE "MULTIPLE LINEAR REGRESSION MODEL";
 PROC REG DATA=project.age;
-    MODEL Age = smoking_status_current smoking_status_former education_rank height weight chol_level BMI blood_glucose bone_density vision_sharpness hearing_ability cognitive_function systolic_bp diastolic_bp stress_lvl pollution_expo;
+	MODEL age = smoking_status_current smoking_status_former education_rank height weight chol_level BMI blood_glucose 
+	bone_density vision_sharpness hearing_ability cognitive_function systolic_bp diastolic_bp stress_lvl pollution_expo sun_expo;
+	run;
+
+/* REFINED LINEAR MODEL */;
+
+TITLE "MULTIPLE LINEAR REGRESSION MODEL";
+PROC REG DATA=project.age;
+	MODEL age = smoking_status_current smoking_status_former education_rank chol_level blood_glucose 
+	bone_density vision_sharpness hearing_ability cognitive_function systolic_bp diastolic_bp;
 	run;
